@@ -21,10 +21,19 @@
       {{ form.start_time() }}
     </p>
     <p>
-      {{ form.end_date.label }}
-      {{ form.end_date() }}
-      {{ form.end_time.label }}
-      {{ form.end_time() }}
+      <div>
+        {{ form.end_date.label }} {{ form.end_date }}
+
+        {% if form.end_date.errors %}
+          <ul class="errors">
+            {% for error in form.end_date.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+          </ul>
+        {% endif %}
+        {{ form.end_time.label }}
+        {{ form.end_time() }}
+      </div>
     </p>
     <p>
       {{ form.description.label }}
